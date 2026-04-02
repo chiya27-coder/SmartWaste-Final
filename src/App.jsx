@@ -71,16 +71,31 @@ function Modal({ open, title, children, onClose }) {
       <div
         className="card"
         onClick={(e) => e.stopPropagation()}
-        style={{ width: "min(560px, 100%)", padding: 20 }}
+        style={{
+          width: "min(560px, 100%)",
+          maxHeight: "90vh",
+          overflowY: "auto",
+          WebkitOverflowScrolling: "touch",
+          padding: 20,
+        }}
       >
-        <div className="flex items-start justify-between gap-3">
-          <div>
+        <div
+          className="flex items-start justify-between gap-3"
+          style={{ flexWrap: "wrap" }}
+        >
+          <div style={{ flex: "1 1 220px" }}>
             <div style={{ fontWeight: 900, fontSize: 22 }}>{title}</div>
             <div style={{ marginTop: 6, color: "#64748b", fontSize: 14 }}>
               Record what happened so the dashboard stays accurate.
             </div>
           </div>
-          <button type="button" onClick={onClose} className="btn btn-ghost">
+
+          <button
+            type="button"
+            onClick={onClose}
+            className="btn btn-ghost"
+            style={{ flexShrink: 0 }}
+          >
             Close
           </button>
         </div>
